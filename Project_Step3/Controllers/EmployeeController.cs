@@ -10,16 +10,16 @@ namespace Project_Step3.Controllers
     [Route("api/[Controller]")]
     public class EmployeeController : ControllerBase
     {
-        IEmployeeService employeeService;
-        public EmployeeController(IEmployeeService _service)
-        {
-            // employeeService = new EmployeeService();
+        //IEmployeeService employeeService;
+        //public EmployeeController(IEmployeeService _service)
+        //{
+        //    // employeeService = new EmployeeService();
 
-            employeeService = _service;
-        }
+        //    employeeService = _service;
+        //}
 
         [HttpGet("GetEmployees")]
-        public async Task<IActionResult> GetEmployees()
+        public async Task<IActionResult> GetEmployees([FromServices] IEmployeeService employeeService)
         {
            // IEmployeeService employeeService = new EmployeeService();
 
@@ -31,7 +31,7 @@ namespace Project_Step3.Controllers
         }
 
         [HttpGet("GetEmployeeById/{id}")]
-        public async Task<IActionResult> GetEmployeeById(int id)
+        public async Task<IActionResult> GetEmployeeById(int id, [FromServices] IEmployeeService employeeService)
         {
           //  IEmployeeService employeeService = new EmployeeService();
 
@@ -44,7 +44,7 @@ namespace Project_Step3.Controllers
         }
 
         [HttpPost("CreateEmployee")]
-        public async Task<IActionResult> CreateEmployee([FromBody] EmployeeModels employee)
+        public async Task<IActionResult> CreateEmployee([FromBody] EmployeeModels employee, [FromServices] IEmployeeService employeeService)
         {
            // IEmployeeService employeeService = new EmployeeService();
 
@@ -54,7 +54,7 @@ namespace Project_Step3.Controllers
         }
 
         [HttpPut("UpdateEmployee/{id}")]
-        public async Task<IActionResult> UpdateEmployee([FromRoute] int id, [FromBody] EmployeeModels employee)
+        public async Task<IActionResult> UpdateEmployee([FromRoute] int id, [FromBody] EmployeeModels employee, [FromServices] IEmployeeService employeeService)
         {
           //  IEmployeeService employeeService = new EmployeeService();
 
@@ -67,7 +67,7 @@ namespace Project_Step3.Controllers
         }
 
         [HttpPut("DeleteEmployee/{id}")]
-        public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
+        public async Task<IActionResult> DeleteEmployee([FromRoute] int id, [FromServices] IEmployeeService employeeService)
         {
           //  IEmployeeService employeeService = new EmployeeService();
 

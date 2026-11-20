@@ -15,7 +15,8 @@ namespace Project_Step3.Services
         private readonly List<EmployeeModels> _employees = new()
         {
                 new EmployeeModels { Id = 1, Name = "John"},
-                new EmployeeModels { Id = 2, Name = "Michel"}
+                new EmployeeModels { Id = 2, Name = "Michel"},
+                new EmployeeModels { Id = 3, Name = "Dyren"}
         };
         public List<EmployeeModels> GetEmployees()
         {
