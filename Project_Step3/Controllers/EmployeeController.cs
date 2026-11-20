@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Project_Step3.Models;
 using Project_Step3.Services;
+using Project_Step3.Interfaces;
 
 namespace Project_Step3.Controllers
 {
@@ -12,7 +13,7 @@ namespace Project_Step3.Controllers
         [HttpGet("GetEmployees")]
         public async Task<IActionResult> GetEmployees()
         {
-            EmployeeService employeeService = new EmployeeService();
+            IEmployeeService employeeService = new EmployeeService();
             List<EmployeeModels> Data = employeeService.GetEmployees().ToList();
             return Ok(Data);
 

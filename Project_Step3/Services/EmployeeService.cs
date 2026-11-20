@@ -1,8 +1,9 @@
 ﻿using Project_Step3.Models;
+using Project_Step3.Interfaces;
 
 namespace Project_Step3.Services
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
         public List<EmployeeModels> GetEmployees()
         {
