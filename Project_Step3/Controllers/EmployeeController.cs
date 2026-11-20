@@ -10,10 +10,18 @@ namespace Project_Step3.Controllers
     [Route("api/[Controller]")]
     public class EmployeeController : ControllerBase
     {
+        IEmployeeService employeeService;
+        public EmployeeController(IEmployeeService _service)
+        {
+            // employeeService = new EmployeeService();
+
+            employeeService = _service;
+        }
+
         [HttpGet("GetEmployees")]
         public async Task<IActionResult> GetEmployees()
         {
-            IEmployeeService employeeService = new EmployeeService();
+           // IEmployeeService employeeService = new EmployeeService();
 
             List<EmployeeModels> Data = employeeService.GetEmployees().ToList();
 
@@ -25,7 +33,7 @@ namespace Project_Step3.Controllers
         [HttpGet("GetEmployeeById/{id}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
-            IEmployeeService employeeService = new EmployeeService();
+          //  IEmployeeService employeeService = new EmployeeService();
 
             var Data = employeeService.GetEmployeeById(id);
 
@@ -38,7 +46,7 @@ namespace Project_Step3.Controllers
         [HttpPost("CreateEmployee")]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeModels employee)
         {
-            IEmployeeService employeeService = new EmployeeService();
+           // IEmployeeService employeeService = new EmployeeService();
 
             var Data = employeeService.CreateEmployee(employee);
 
@@ -48,7 +56,7 @@ namespace Project_Step3.Controllers
         [HttpPut("UpdateEmployee/{id}")]
         public async Task<IActionResult> UpdateEmployee([FromRoute] int id, [FromBody] EmployeeModels employee)
         {
-            IEmployeeService employeeService = new EmployeeService();
+          //  IEmployeeService employeeService = new EmployeeService();
 
             var Data = employeeService.UpdateEmployee(id,employee);
 
@@ -61,7 +69,7 @@ namespace Project_Step3.Controllers
         [HttpPut("DeleteEmployee/{id}")]
         public async Task<IActionResult> DeleteEmployee([FromRoute] int id)
         {
-            IEmployeeService employeeService = new EmployeeService();
+          //  IEmployeeService employeeService = new EmployeeService();
 
             bool Data = employeeService.DeleteEmployee(id);
 

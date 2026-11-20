@@ -7,6 +7,11 @@ namespace Project_Step3.Services
     public class EmployeeService : IEmployeeService
     {
 
+        public EmployeeService()
+        {
+
+        }
+
         private readonly List<EmployeeModels> _employees = new()
         {
                 new EmployeeModels { Id = 1, Name = "John"},
