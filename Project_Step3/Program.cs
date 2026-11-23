@@ -1,3 +1,5 @@
+
+using Microsoft.AspNetCore.SignalR;
 using Project_Step3.Interfaces;
 using Project_Step3.Services;
 
@@ -7,7 +9,11 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddControllers();
 
-builder.Services.AddTransient<IEmployeeService, EmployeeService>();    // now asp.net core taking responsibility to create the instance of the EmployeeService
+builder.Services.AddSingleton<ISingletonCoffee, CoffeeShopService>();
+
+builder.Services.AddScoped<IScopedCoffee, CoffeeShopService>();
+
+builder.Services.AddTransient<ITransientCoffee, CoffeeShopService>();
 
 var app = builder.Build();;
 
